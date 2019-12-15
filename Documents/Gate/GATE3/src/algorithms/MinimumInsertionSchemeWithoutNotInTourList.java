@@ -11,23 +11,16 @@ public class MinimumInsertionSchemeWithoutNotInTourList {
 		int indexToInsert;
 		int notInTourCityToInsert;
 		int firstCityNotInTour;
-		private boolean firstTrueInIteration;
 
 		MinimumInsertionSchemeWithoutNotInTourList(UndirectedGraphAsAdjacencyMatrix undirGraph, int[] startTour, int tourLength){
 			this.adj = undirGraph.getAdjacencyMatrix();
 			this.tourArray = startTour;
 			this.tourLength = tourLength;
 		}
-		
-		int[] getshortestTour(){
-			tourArray = useInsertionScheme();
-			return tourArray;
-		}
-		
-		private int[] useInsertionScheme() {
+				
+		int[] getshortestTour() {
 			firstCityNotInTour = 0;
-			while (tourLength < tourArray.length) {
-				firstTrueInIteration = true; 
+			while (tourLength < tourArray.length) { 
 				getMinCityAndIndexToInsert();
 				tourArray = insertAndRemoveCity();
 			}
@@ -49,18 +42,7 @@ public class MinimumInsertionSchemeWithoutNotInTourList {
 					return false;
 				}
 			}
-			if(firstTrueInIteration()) {
-				firstCityNotInTour = city;	
-			}
 			return true;
-		}
-
-		private boolean firstTrueInIteration() {
-			if(firstTrueInIteration) {
-				firstTrueInIteration = false; 
-				return true;
-			}
-			return false;
 		}
 
 		private void getMinCostForInsertion(int cityNotInTour) {
