@@ -34,7 +34,7 @@ public class XXXXX implements AlgorithmTSP {
 	public void execute(UndirectedGraphAsAdjacencyMatrix undirGraph) {
 		this.undirGraph = undirGraph;
 		StartTourProcessor startTourProcessor = new StartTourProcessor(undirGraph);
-		MinimumInsertionSchemeWithoutNotInTourList minimumInsertionScheme = new MinimumInsertionSchemeWithoutNotInTourList(undirGraph, startTourProcessor.getStartTour(), startTourProcessor.getTourLength());
+		NearestNeigborInsertionScheme minimumInsertionScheme = new NearestNeigborInsertionScheme(undirGraph, startTourProcessor.getStartTour(), startTourProcessor.getTourLength());
 		tour = minimumInsertionScheme.getshortestTour();			
 	}
 
