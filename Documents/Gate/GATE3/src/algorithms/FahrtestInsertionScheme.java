@@ -9,7 +9,10 @@ public class FahrtestInsertionScheme {
 	int tourLength;
 	int indexToInsert;
 	int notInTourCityToInsert;
-	double overallMaxiimumCost;
+	double overallMaximumMinimumCost;
+	double cityMinimumCost;
+	boolean isMaximumCostCity;
+	int minIndex;
 	
 	double currentCost;
 	int cityInTour1;
@@ -32,7 +35,7 @@ public class FahrtestInsertionScheme {
 	}
 	
 	private void getMinCityAndIndexToInsert() { 
-		overallMaxiimumCost = Double.MIN_VALUE;
+		overallMaximumMinimumCost = Double.MIN_VALUE;
 		for (int city = 0; city < tourArray.length; city++) {
 			if(cityNotInTour(city)) {
 				getMinCostForInsertion(city);	
@@ -50,16 +53,17 @@ public class FahrtestInsertionScheme {
 	}
 
 	private void getMinCostForInsertion(int cityNotInTour) {
+		cityMinimumCost = Double.MAX_VALUE;
+		isMaximumCostCity = false;
 		for (int indexOfInTour = 0; indexOfInTour < tourLength - 1; indexOfInTour++) { //inTour.size-1 weil mit 0 beginnt
 			cityInTour1 = tourArray[indexOfInTour];
 			cityInTour2 = tourArray[indexOfInTour + 1];
 			Kante1 = adj[cityNotInTour][cityInTour1];
 			Kante2 = adj[cityNotInTour][cityInTour2];
 			currentCost = Kante1 + Kante2;
-			if(overallMaxiimumCost < currentCost) {
-					overallMaxiimumCost = currentCost;
-					indexToInsert = indexOfInTour + 1;
-					notInTourCityToInsert =  cityNotInTour;
+			if(cityMinimumCost > currentCost) {
+				cityMinimumCost = currentCost;
+				minIndex = indexOfInTour+1;
 			}
 		}
 		// von der letzten Stadt zur ersten Stadt
@@ -68,10 +72,14 @@ public class FahrtestInsertionScheme {
 		Kante1 = adj[cityNotInTour][cityInTour1];
 		Kante2 = adj[cityNotInTour][cityInTour2];
 		currentCost = Kante1 + Kante2;
-		if(overallMaxiimumCost < currentCost) {
-				overallMaxiimumCost = currentCost;
-				indexToInsert = tourLength;
-				notInTourCityToInsert =  cityNotInTour;
+		if(cityMinimumCost > currentCost) {
+			cityMinimumCost = currentCost;
+			minIndex = tourLength;
+		}
+		if(overallMaximumMinimumCost < cityMinimumCost) {
+			overallMaximumMinimumCost = cityMinimumCost;
+			indexToInsert = minIndex;
+			notInTourCityToInsert =  cityNotInTour;
 		}
 	}
 

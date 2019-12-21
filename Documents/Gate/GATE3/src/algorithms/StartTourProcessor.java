@@ -20,8 +20,9 @@ public class StartTourProcessor {
 	}
 
 	private int[][] getStartTourMatrix() { //muss verbunden sein
+		startTourMatrix[0][1] = 1;
 		startTourMatrix[1][2] = 1;
-		startTourMatrix[2][1] = 1;
+		startTourMatrix[2][0] = 1;
 //		startTourMatrix[44][3] = 1;
 //		startTourMatrix[3][40] = 1;
 //		startTourMatrix[40][7] = 1;
@@ -60,7 +61,7 @@ public class StartTourProcessor {
 			for (int spalte = 0; spalte < startTourMatrix.length; spalte++) {
 				if (startTourMatrix[neueZeile][spalte] == 1) {
 
-					if ((tourArray[tourLength] == spalte) == false) {
+					if (tourArray[0] == spalte) {
 						break whileLoop;
 					}
 					tourArray[tourLength] = spalte;
