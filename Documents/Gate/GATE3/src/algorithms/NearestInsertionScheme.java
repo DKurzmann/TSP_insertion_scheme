@@ -76,6 +76,7 @@ public class NearestInsertionScheme {
 		}
 
 		private int[] insertCity() {
+			System.out.print(tourLength +":"+indexToInsert +":"+notInTourCityToInsert+"_");
 			if(indexToInsert == tourLength) {
 				tourArray[tourLength] = notInTourCityToInsert;
 				tourLength++;
@@ -90,6 +91,12 @@ public class NearestInsertionScheme {
 				}
 				tourLength++;
 			}
+//			if(tourLength == 90) { //test
+//				String tourAsString = "";
+//				for(int indexOfTour = 0; indexOfTour < tourLength; indexOfTour++) {
+//					tourAsString = tourAsString + "_" + tourArray[indexOfTour];}
+//				System.out.println(tourAsString);
+//			}
 			return tourArray; 
 		}
 }
