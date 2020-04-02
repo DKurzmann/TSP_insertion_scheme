@@ -1,0 +1,12 @@
+package testing;
+
+public class BowlingGame {
+
+	public void roll(int pinsDown) {
+
+		int pins = 9 - pinsDown; 
+		int pinsAfterRoll = (int) (Math.random()*pins);
+		System.out.println(pinsAfterRoll);
+	}
+	
+}

@@ -1,0 +1,36 @@
+package testing;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+
+class squareTest {
+	private BowlingGame g;
+	int i;
+	
+	@Test
+	@Order(1)
+	void setup() {
+		g = new BowlingGame();
+		System.out.println(g + "   " + (i += 1));
+	}
+
+	@Test
+	@Order(2)
+	void testGutterGame() {
+		System.out.println(g + "   " + (i += 1));
+		for(int i = 0; i < 20; i++)
+			g.roll(0);
+		assertEquals(0, g.score());
+	}
+	@Test
+	@Order(3)
+	void testAllOnes() {
+		System.out.println(g + "   " + (i += 1));
+		for(int i = 0; i < 20; i++)
+			g.roll(1);
+		assertEquals(20, g.score());
+	}
+	
+}

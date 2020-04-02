@@ -1,0 +1,25 @@
+package testing;
+
+public class BowlingGame {
+
+	private int rolls[] = new int[21];
+	private int currentRoll = 0;
+	
+	public void roll(int pinsDown) {
+		score += pinsDown;
+		rolls[currentRoll++] = pinsDown;
+	}
+	
+	public int score() {
+		int score = 0;
+		for(int i = 0; i < rolls.length; i++) 
+			score += rolls[i];
+		return score;
+	}
+	
+	public static void main(String[] args) {
+		BowlingGame g = new BowlingGame();
+		g.roll(0);
+	}
+	
+}

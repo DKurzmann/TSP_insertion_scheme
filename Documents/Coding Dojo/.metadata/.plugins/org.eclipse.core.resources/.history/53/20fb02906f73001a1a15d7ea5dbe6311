@@ -1,0 +1,20 @@
+package testing;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class squareTest {
+
+	@Test
+	void test() {
+		
+		
+		BowlingGame test = new BowlingGam();
+		
+//		int square = test.square(5);
+//		assertEquals(25, square);
+		
+	}
+
+}

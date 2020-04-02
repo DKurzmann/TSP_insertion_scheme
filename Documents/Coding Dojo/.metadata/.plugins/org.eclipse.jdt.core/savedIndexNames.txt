@@ -1,0 +1,19 @@
+INDEX VERSION 1.131+C:\Users\DavidKurzmann\Documents\Coding Dojo\.metadata\.plugins\org.eclipse.jdt.core
+1327974080.index
+2875988874.index
+4167074605.index
+2455335303.index
+3224729658.index
+1598912148.index
+3444976318.index
+2517942616.index
+3814969609.index
+1775574931.index
+740808103.index
+1371316203.index
+524819999.index
+1517664310.index
+2882223988.index
+4147137188.index
+3172464509.index
+3849402396.index
